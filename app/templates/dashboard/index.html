@@ -1,0 +1,198 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+{% block content %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- BAR CHART -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Social Engagement</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart">
+              <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <!-- DONUT CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title" id="total_users_count">Total Users: {{count}}</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (LEFT) this is for treanding communities-->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Communities</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pl-2 pr-2">
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="{{ data[0].profile_photo }}" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="/community/{{data[0].community_id}}" class="product-title">{{ data[0].name }}
+                        <span class="badge badge-warning float-right">{{ data[0].total_member }} members</span></a>
+                      <span class="product-description">
+                        {{ data[0].about }}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="{{ data[1].profile_photo }}" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="/community/{{data[1].community_id}}" class="product-title">{{ data[1].name }}
+                        <span class="badge badge-warning float-right">{{ data[1].total_member }} members</span></a>
+                      <span class="product-description">
+                        {{ data[1].about }}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="{{ data[2].profile_photo }}" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="/community/{{data[2].community_id}}" class="product-title">{{ data[2].name }}
+                        <span class="badge badge-warning float-right">{{ data[2].total_member }} members</span></a>
+                      <span class="product-description">
+                        {{ data[2].about }}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="{{ data[3].profile_photo }}" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="/community/{{data[3].community_id}}" class="product-title">{{ data[3].name }}
+                        <span class="badge badge-warning float-right">{{ data[3].total_member }} members</span></a>
+                      <span class="product-description">
+                        {{ data[3].about }}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="/community" class="uppercase">View All groups</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            
+          </div>
+          <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
+
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Number of Users Every Interval</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 334px;" width="334" height="250" class="chartjs-render-monitor"></canvas>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+
+        <!-- /.card -->
+        
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock content %}
+
+
+{% block javascripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock javascripts %}

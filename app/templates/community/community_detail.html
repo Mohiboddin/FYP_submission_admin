@@ -1,0 +1,209 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Community Info {% endblock %} 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/community_item.css') }}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content-wrapper" style="min-height: 2646.44px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Community Info</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Communities /</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+   
+
+            <!-- About Me Box -->
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">About Community</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <p class="text-muted">
+                    {{data["community_info"].about}}
+                </p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#engagement" data-toggle="tab" id="community_engagement">Engagement</a></li>
+                  
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="activity">
+                            <!-- Chat Screen  -->
+                            
+                            <div class="card">
+                                <div class="position-relative">
+                                   <div class="chat-messages p-4" id="chat_populate" style="height: 548px;">
+                                      
+                                      
+                                      
+                                   </div>
+                                </div>
+                             </div>                           
+                        
+                    </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="engagement">
+                        <!-- Engagement  -->
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default">
+                                🡰
+                            </button>
+                            
+                            <button type="button" class="btn btn-default">
+                                🡲
+                            </button>
+                          </div>
+
+                         
+                
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+<!-- Model for display members  -->
+<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="card-header p-2" >
+             <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#participants" data-toggle="tab">Participants</a></li>
+                <li class="nav-item"><a class="nav-link" href="#left" data-toggle="tab">Left</a></li>
+             </ul>
+          </div>
+          <!-- /.card-header -->
+          <div class="modal-body" >
+                <div class="tab-content">
+                   <div class="tab-pane active" id="participants">
+                      <!-- Participants Screen  -->
+                      <div class="card-body p-0">
+                         <ul class="products-list product-list-in-card pl-2 pr-2" style="height: 400px ; overflow-y: scroll;" >
+                            {% for member in data['members'] %}
+                            {% if member['status']==1  %}
+                            <li class="item">
+                               <div class="product-img">
+                                  <img src="{{member['photo_url']}}" alt="profile Image" class="img-size-50">
+                               </div>
+                               <div class="product-info">
+                                  <a href="/profile/{{member['user_uuid']}}" class="product-title">{{member['official_name']}}
+                                    {% if member['role']==4 %}  
+                                    <span class="badge badge-warning float-right">
+                                    Student
+                                    {% elif member['role']==3 %}
+                                    <span class="badge badge-success float-right">
+                                    Alumni
+                                    {% elif member['role']==2 %}
+                                    <span class="badge badge-info float-right">
+                                    Staff
+                                    {% endif %}
+                                  </span></a>
+                                  <span class="product-description">
+                                    {{member['joined_at']}}
+                                  </span>
+                               </div>
+                            </li>  
+                            {% endif%}
+                            {% endfor %}
+                        </ul>
+                      </div>
+                   </div>
+                   <!-- /.tab-pane -->
+                   <div class="tab-pane" id="left">
+                      <!-- Left  -->
+                      <div class="card-body p-0">
+                        <ul class="products-list product-list-in-card pl-2 pr-2" style="height: 400px ; overflow-y: scroll;" >
+                            {% for member in data['members'] %}
+                            {% if member['status']==2  %}
+                            <li class="item">
+                               <div class="product-img">
+                                  <img src="{{member['photo_url']}}" alt="profile Image" class="img-size-50">
+                               </div>
+                               <div class="product-info">
+                                  <a href="/profile/{{member['user_uuid']}}" class="product-title">{{member['official_name']}}
+                                    {% if member['role']==4 %}  
+                                    <span class="badge badge-warning float-right">
+                                    Student
+                                    {% elif member['role']==3 %}
+                                    <span class="badge badge-success float-right">
+                                    Alumni
+                                    {% elif member['role']==2 %}
+                                    <span class="badge badge-info float-right">
+                                    Staff
+                                    {% endif %}
+                                  </span></a>
+                                  <span class="product-description">
+                                    {{member['joined_at']}}
+                                  </span>
+                               </div>
+                            </li>  
+                            {% endif%}
+                            {% endfor %}
+                        </ul>
+                      </div>
+                   </div>
+             </div>
+            </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+          <!-- /.modal-content -->
+       </div>
+       <!-- /.modal-dialog -->
+    </div>
+ </div>
+{% endblock content %}
+
+{% block javascripts %}
+
+
+<script>
+    console.log("hello");
+  console.log('{{data}}' )
+  data_js = JSON.parse( '{{ data  | tojson }}' );
+  console.log(data_js)
+</script>
+
+<script src="{{ url_for('static', filename='js/community.js') }}"></script>
+{% endblock javascripts %}

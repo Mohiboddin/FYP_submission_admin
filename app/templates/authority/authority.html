@@ -1,0 +1,93 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Authority {% endblock %} 
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/authority.css') }}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Authority</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Authority</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <section class="content">
+        <div class="text-center removable_parent_button">
+            
+        </div>
+        <div id="populate_structure">
+            <ul id="add_node">
+                <!-- <div  class="row">
+                <p style="padding-right: 20px;">AIKTC</p>
+                <button type="button" class="createChild btn btn-primary" style="margin: 0px 2px 0px 2px; padding: 0px 5px 0px 5px; height: 28px;">Edit</button>
+                <button type="button" style=" margin: 0px 2px 0px 2px;padding: 0px 5px 0px 5px; height: 28px;" class="closeIT btn btn-danger">Del</button>
+                </div> -->
+            </ul>
+        </div>
+        
+    </section>
+    <!-- /.content -->
+  </div>
+<!-- /.content-wrapper -->
+  
+ 
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!--Modal for creating parent node-->
+<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal_heading">Create Node</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+            <div class="form-group">
+                <label  id="modal_message">Name</label>
+                <div id="modal-body">
+                    <input class="form-control" id="node_name" type="text" placeholder="Eg: AIKTC">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="modal_function" onclick="remove_button_and_add_parent_node(1);" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+<script src="{{ url_for('static', filename='js/authority.js') }}"></script>
+
+{% endblock javascripts %}

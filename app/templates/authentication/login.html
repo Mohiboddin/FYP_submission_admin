@@ -1,0 +1,60 @@
+{% extends "authentication/auth_layout.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %} 
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>Campus</b>Connect</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" id="email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" id="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div> -->
+          <!-- /.col -->
+          <div class="col-4 ml-auto">
+            <button class="btn btn-primary btn-block" id="signin">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+
+      <p class="mb-1">
+        <a href="/forgotpassword">I forgot my password</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+{% endblock %}
+
+{% block scripts %} 
+<script src="{{ url_for('static', filename='js/login.js')}}"></script>
+
+{% endblock %}

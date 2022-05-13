@@ -1,0 +1,5 @@
+NOTE: (1). please don't modify the header of excel file.,,,
+(2). The User type should be an integer: Staff-2 | Alumni-3 | Student-4,,,
+(3). Start filling data from row number 5,,,
+name,email,institution_id,user_type,
+Saquib,saquib@gmail.com,18CO54,4

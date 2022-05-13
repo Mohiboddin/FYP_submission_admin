@@ -1,0 +1,222 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} users {% endblock %} 
+
+{% block content %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Users</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Users</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <section class="content">
+
+                 <ul class="nav nav-tabs" id="custom-content-above-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="custom-content-above-home-tab" data-toggle="pill" href="#custom-content-above-home" role="tab" aria-controls="custom-content-above-home" aria-selected="true">Add Users</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="custom-content-above-profile-tab" data-toggle="pill" href="#custom-content-above-profile" role="tab" aria-controls="custom-content-above-profile" aria-selected="false">Count</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="custom-content-above-messages-tab" data-toggle="pill" href="#custom-content-above-messages" role="tab" aria-controls="custom-content-above-messages" aria-selected="false">Info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="custom-content-above-settings-tab" data-toggle="pill" href="#custom-content-above-settings" role="tab" aria-controls="custom-content-above-settings" aria-selected="false">Transfer</a>
+                    </li>
+                  </ul>
+        
+        <div class="tab-content" id="custom-content-above-tabContent">
+            <div class="tab-pane fade active show" id="custom-content-above-home" role="tabpanel" aria-labelledby="custom-content-above-home-tab">
+
+               
+
+            </div>
+            <div class="tab-pane fade" id="custom-content-above-profile" role="tabpanel" aria-labelledby="custom-content-above-profile-tab">
+               <!-- count table -->                
+                <div class="box-body card p-3">
+                <table class="table table-bordered">
+                <tbody><tr>
+                <th style="width: 10px">#</th>
+                <th>Section</th>
+                <th style="width: 25%">Total Students</th>
+                <th style="width: 25%">Total Alumni</th>
+                <th style="width: 25%">Total Students</th>
+                </tr>
+                <tr>
+                <td>1.</td>
+                <td>AIKTC</td>
+                <td>
+                  2500 | Onboard: 2303
+                </td>
+                <td>1500 | Onboard: 1340</td>
+                <td>250 | Onboard: 242
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Engineering</td>
+                  <td>
+                    1500 | Onboard: 1404
+                  </td>
+                  <td>1000 | Onboard: 840</td>
+                  <td>200 | Onboard: 182</td>
+                </tr>
+                
+                </tbody></table>
+                </div>
+
+             </div>
+           
+                <table class="table table-bordered">
+                  <tbody><tr>
+                  <th >Name</th>
+                  <th>Name By Admin</th>
+                  <th >Roll no</th>
+                  <th >Type</th>
+                  <th >Onboard</th>
+                  <th >Operation</th>
+                  </tr>
+                  <tr>
+                  <td>Khan Israr</td>
+                  <td>Israr</td>
+                  <td>18CO30</td>
+                  <td>Student</td>
+                  <td><span class="badge bg-success">Yes</span></td>
+                  <td><span class="badge bg-success" style="padding: 3%;" ><i class=" fas fa-solid fa-eye"></i></span>
+                    <span class="badge bg-primary" style="padding: 3%;" data-toggle="modal" data-target="#modal-default"><i class="fas fa-edit"></i></span>
+                    <span  class="badge bg-danger dropdown-toggle" style="padding: 3%; cursor: pointer;" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></span>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal-sm">Deactivate</a>
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal-sm">Delete Account</a>
+                    </div>
+                  </td>
+                  </tr>
+            
+                  </tbody></table>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="custom-content-above-settings" role="tabpanel" aria-labelledby="custom-content-above-settings-tab">
+               Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+            </div>
+          </div>
+        
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2021-2022 <a href="#">AppName.home</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- model -->
+<!--Modal for creating parent node-->
+<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal_heading">Create Node</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div>
+      <form class="form-horizontal">
+        <div class="card-body"> <!--First Name-->
+          
+            <div class="form-group row"><!--Email-->
+              <label for="user_name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="user_name" placeholder="Name">
+              </div>
+            </div>
+            <div class="form-group row"><!--Email-->
+              <label for="email_id" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email_id" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group row"><!--Email-->
+              <label for="roll_no" class="col-sm-2 col-form-label">Roll No</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="roll_no" placeholder="Roll Number">
+              </div>
+            </div>
+            <div class="form-group row"> <!--Type-->
+              <label for="user_type" class="col-sm-2 col-form-label">User Type</label>
+                <div class="col-sm-10">
+                <!-- <input class="form-control" id="user_type" placeholder="Select"> -->
+                <select class="custom-select rounded-2" id="user_type">
+                  <option value="student">Student</option>
+                  <option value="staff">Staff</option>
+                  <option value="alumni">Alumni</option>
+                </select>
+                </div>
+            </div>   
+        </div>
+        <!-- /.card-body -->
+
+   
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- small model -->
+<div class="modal fade" id="modal-sm">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Comfirm</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Deactivate/Delete the account&hellip;</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+  
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+{% endblock javascripts %}

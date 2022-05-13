@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Communities {% endblock %} 
+
+{% block content %}
+<div class="content-wrapper" style="min-height: 2646.44px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Communities</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Communities</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+            {% for community in communities_info %}
+            <div class="col-sm-3">
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                  <div class="card-body box-profile">
+                            <div class="text-center container w-75" height=200px>
+                                <img  src="{{  community['profile_photo']}} " class="img-fluid" width=100% height=100% alt="Cinque Terre"> 
+                            </div>
+                            <a href="/community/{{community['id']}} " class="mt-5"><h3 class="profile-username text-center">{{community['name']}} </h3></a>
+                            <p class="text-muted text-center">{{community['total_member']}}  members</p>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+              {% endfor %}
+
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+{% endblock javascripts %}

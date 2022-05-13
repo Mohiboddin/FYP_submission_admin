@@ -1,0 +1,20 @@
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.closeIT, .editIT {
+    margin: 0px 2px 0px 2px;
+    padding: 0px 5px 0px 5px; 
+    height: 28px;
+    cursor: pointer;
+}
+.createChild{
+    margin: 0px 2px 0px 2px; 
+    padding: 0px 5px 0px 5px; 
+    height: 28px;
+}
+
